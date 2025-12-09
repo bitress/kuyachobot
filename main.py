@@ -182,7 +182,7 @@ class TreasureBot(commands.Bot):
             logger.info(f"Found {search_term.upper()} on: {formatted_locations}")
             return
 
-        # 2. Fuzzy Match
+        # 2. Fuzzy Match & Suggestions
         matches = process.extract(
             search_term,
             self.cache.keys(),
@@ -190,53 +190,21 @@ class TreasureBot(commands.Bot):
             scorer=fuzz.token_set_ratio
         )
 
-        if not matches:
+        # Filter matches (Threshold > 75)
+        valid_suggestions = [m[0] for m in matches if m[1] > 75]
+
+        if valid_suggestions:
+            suggestions_str = ", ".join(valid_suggestions)
             await ctx.send(
-                f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
-            return
-        logger.info(f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
-
-        best_match_key, best_score = matches[0]
-
-        # 3. Correction
-        if best_score > 95:
-            raw_locations = self.cache[best_match_key]
-            formatted_locations = raw_locations.upper().replace(", ", " | ")
-
-            await ctx.send(
-                f"Did you mean \"{best_match_key.upper()}\"? Found on: {formatted_locations}")
-            logger.info(
-                f"Did you mean \"{best_match_key.upper()}\"? Found on: {formatted_locations}"
-            )
-            return
-
-        # 4. Suggestions
-        valid_suggestions = [m[0].upper() for m in matches if m[1] > 75 and m[0] != best_match_key]
-
-        if best_score > 75:
-            suggestions_str = ", ".join([best_match_key.upper()] + valid_suggestions[:2])
-            await ctx.send(
-                f"I could not find \"{search_term}\" - Did you mean \"{suggestions_str}\"?"
+                f"Couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
             )
             logger.info(
-                f"I could not find \"{search_term}\" - Did you mean \"{suggestions_str}\"?"
+                f"Couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
             )
         else:
             await ctx.send(
                 f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
             logger.info(f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
-    @commands.command(aliases=['reload'])
-    async def refresh(self, ctx: commands.Context):
-        is_mod = ctx.author.is_mod
-        is_broadcaster = ctx.author.name.lower() == CHANNEL.lower()
-        is_admin = ctx.author.name.lower() == "byteress".lower()
-
-        if not (is_mod or is_broadcaster or is_admin):
-            return
-
-        await ctx.send("Refreshing database...")
-        await self.update_cache()
-        await ctx.send(f"Refreshed! {len(self.cache)} items.")
 
     @commands.command()
     async def help(self, ctx: commands.Context):
