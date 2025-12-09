@@ -179,6 +179,7 @@ class TreasureBot(commands.Bot):
             formatted_locations = raw_locations.upper().replace(", ", " | ")
 
             await ctx.send(f"{ctx.author.name} Found {search_term.upper()} on: {formatted_locations}")
+            logger.info(f"{ctx.author.name} Found {search_term.upper()} on: {formatted_locations}")
             return
 
         # 2. Fuzzy Match
@@ -193,6 +194,7 @@ class TreasureBot(commands.Bot):
             await ctx.send(
                 f"{ctx.author.name} we couldn't find \"{search_term}\" or anything similar. Check your spelling!")
             return
+        logger.info(f"{ctx.author.name} we couldn't find \"{search_term}\" or anything similar. Check your spelling!")
 
         best_match_key, best_score = matches[0]
 
@@ -203,6 +205,9 @@ class TreasureBot(commands.Bot):
 
             await ctx.send(
                 f"{ctx.author.name}, did you mean **{best_match_key.upper()}**? Found on: {formatted_locations}")
+            logger.info(
+                f"{ctx.author.name}, did you mean **{best_match_key.upper()}**? Found on: {formatted_locations}"
+            )
             return
 
         # 4. Suggestions
@@ -213,10 +218,13 @@ class TreasureBot(commands.Bot):
             await ctx.send(
                 f"{ctx.author.name} we could not find \"{search_term}\" - Did you mean **{suggestions_str}**?"
             )
+            logger.info(
+                f"{ctx.author.name} we could not find \"{search_term}\" - Did you mean **{suggestions_str}**?"
+            )
         else:
             await ctx.send(
                 f"{ctx.author.name} we couldn't find \"{search_term}\" or anything similar. Check your spelling!")
-
+            logger.info(f"{ctx.author.name} we couldn't find \"{search_term}\" or anything similar. Check your spelling!")
     @commands.command(aliases=['reload'])
     async def refresh(self, ctx: commands.Context):
         is_mod = ctx.author.is_mod
