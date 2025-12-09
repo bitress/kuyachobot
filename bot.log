@@ -1,0 +1,125 @@
+2025-12-09 11:07:59,480 - INFO - TreasureBot - Starting Bot...
+2025-12-09 11:07:59,482 - INFO - TreasureBot - Google Sheets client initialized successfully.
+2025-12-09 11:08:01,230 - INFO - twitchio.websocket - Successfully logged onto Twitch WS: kuyachobot
+2025-12-09 11:08:01,258 - INFO - TreasureBot - Logged in as: kuyachobot
+2025-12-09 11:08:01,258 - INFO - TreasureBot - Monitoring channel: chopaeng
+2025-12-09 11:08:01,258 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:08:04,185 - INFO - TreasureBot - Found 5 sheets in workbook 'ChoPaeng_Database'. Starting scan...
+2025-12-09 11:08:04,660 - INFO - TreasureBot - Indexed sheet: Matahom
+2025-12-09 11:08:06,073 - INFO - TreasureBot - Indexed sheet: Paraluman
+2025-12-09 11:08:07,479 - INFO - TreasureBot - Indexed sheet: KakangGata
+2025-12-09 11:08:08,877 - INFO - TreasureBot - Indexed sheet: Tadhana
+2025-12-09 11:08:09,877 - INFO - TreasureBot - Scan complete. Processed 4 sheets.
+2025-12-09 11:08:09,878 - INFO - TreasureBot - Cache updated successfully: 2396 unique items loaded.
+2025-12-09 11:08:09,878 - INFO - TreasureBot - Background cache refresh task started.
+2025-12-09 11:08:25,202 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<TreasureBot.auto_refresh_cache() running at C:\Users\bitress\Desktop\chatbot\main.py:179> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-12-09 11:08:26,490 - INFO - TreasureBot - Starting Bot...
+2025-12-09 11:08:26,493 - INFO - TreasureBot - Google Sheets client initialized successfully.
+2025-12-09 11:08:28,131 - INFO - twitchio.websocket - Successfully logged onto Twitch WS: kuyachobot
+2025-12-09 11:08:28,161 - INFO - TreasureBot - Logged in as: kuyachobot
+2025-12-09 11:08:28,161 - INFO - TreasureBot - Monitoring channel: chopaeng
+2025-12-09 11:08:28,161 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:08:30,971 - INFO - TreasureBot - Found 5 sheets in workbook 'ChoPaeng_Database'. Starting scan...
+2025-12-09 11:08:31,413 - INFO - TreasureBot - Indexed sheet: Matahom
+2025-12-09 11:08:32,838 - INFO - TreasureBot - Indexed sheet: Paraluman
+2025-12-09 11:08:34,235 - INFO - TreasureBot - Indexed sheet: KakangGata
+2025-12-09 11:08:35,645 - INFO - TreasureBot - Indexed sheet: Tadhana
+2025-12-09 11:08:36,645 - INFO - TreasureBot - Scan complete. Processed 4 sheets.
+2025-12-09 11:08:36,646 - INFO - TreasureBot - Cache updated successfully: 2396 unique items loaded.
+2025-12-09 11:08:36,646 - INFO - TreasureBot - Background cache refresh task started.
+2025-12-09 11:11:19,274 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<TreasureBot.auto_refresh_cache() running at C:\Users\bitress\Desktop\chatbot\main.py:179> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-12-09 11:11:30,996 - INFO - TreasureBot - Bot starting...
+2025-12-09 11:11:30,998 - INFO - TreasureBot - Google Sheets client initialized.
+2025-12-09 11:11:32,734 - INFO - twitchio.websocket - Successfully logged onto Twitch WS: kuyachobot
+2025-12-09 11:11:32,760 - INFO - TreasureBot - Logged in as: kuyachobot
+2025-12-09 11:11:32,761 - INFO - TreasureBot - Monitoring channel: chopaeng
+2025-12-09 11:11:32,761 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:11:36,056 - INFO - TreasureBot - Found 5 sheets. Scanning...
+2025-12-09 11:11:36,525 - INFO - TreasureBot - Indexed: Matahom
+2025-12-09 11:11:38,127 - INFO - TreasureBot - Indexed: Paraluman
+2025-12-09 11:11:39,528 - INFO - TreasureBot - Indexed: KakangGata
+2025-12-09 11:11:40,930 - INFO - TreasureBot - Indexed: Tadhana
+2025-12-09 11:11:41,931 - INFO - TreasureBot - Scan complete. 4 sheets processed.
+2025-12-09 11:11:41,932 - INFO - TreasureBot - Cache updated: 2396 items loaded.
+2025-12-09 11:11:41,932 - INFO - TreasureBot - Background cache refresh task started.
+2025-12-09 11:12:32,810 - INFO - TreasureBot - [CHAT] byteress: ?find Grand piano
+2025-12-09 11:12:33,134 - INFO - TreasureBot - [CHAT] chopaeng: Hey byteress! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:13:50,495 - INFO - TreasureBot - [CHAT] chopaeng: Thank you for following redneck250033 kuyachoCho
+2025-12-09 11:16:50,857 - INFO - TreasureBot - [CHAT] chopaeng: Thank you for following fallboy42 kuyachoCho
+2025-12-09 11:16:55,075 - INFO - TreasureBot - [CHAT] fallboy42: !find Antique Vanity
+2025-12-09 11:16:55,300 - INFO - TreasureBot - [CHAT] chopaeng: Hey fallboy42! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:16:55,359 - INFO - TreasureBot - [CHAT] kuyachobot: @fallboy42 [ERROR] Couldn't find 'Antique Vanity' in the database.
+2025-12-09 11:17:23,164 - INFO - TreasureBot - [CHAT] fallboy42: !orderbot mirror
+2025-12-09 11:17:23,428 - INFO - TreasureBot - [CHAT] chopaeng: Type "!order <item name>" on the chat. Example: !order nook miles ticket. The full instruction can be seen on our Discord Server: https://discord.gg/chopaeng. Navigate to "Get Roles" channel under `Games you play` to get the "Animal Crossing" role. Then navigate to "Order Bot How" channel for the full tutorial. You can also get your villager using the Orderbot. Type "!order villager:<id>". You can find the ID of a villager here https://bit.ly/OrderVillagerCode.
+2025-12-09 11:18:00,137 - INFO - TreasureBot - [CHAT] chopaeng: Thank you for following p1nkk1ll3r kuyachoCho
+2025-12-09 11:18:06,069 - INFO - TreasureBot - [CHAT] p1nkk1ll3r: !wheat field
+2025-12-09 11:18:41,062 - INFO - TreasureBot - [CHAT] p1nkk1ll3r: !order wheat field
+2025-12-09 11:19:59,571 - INFO - TreasureBot - [CHAT] luzgonzalez93: !order villager:shp14
+2025-12-09 11:21:03,313 - INFO - TreasureBot - [CHAT] p1nkk1ll3r: !order wheat field
+2025-12-09 11:21:47,940 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ PERKS FOR SUBSCRIBING kuyachoCho : Unlimited access to Treasure Islands 24/7. || Request any item/DIY/Villager on the island.  JOIN OUR COMMUNITY: https://www.patreon.com/chopaeng/membership or https://subs.twitch.tv/chopaeng VirtualHug kuyachoCho ﾟ+..｡ﾟ
+2025-12-09 11:22:38,310 - INFO - TreasureBot - [CHAT] fooui_: !find streetlamp
+2025-12-09 11:22:38,600 - INFO - TreasureBot - [CHAT] chopaeng: Hey fooui_! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:22:38,608 - INFO - TreasureBot - [CHAT] kuyachobot: @fooui_ [ERROR] Couldn't find 'streetlamp' in the database.
+2025-12-09 11:24:27,030 - INFO - TreasureBot - Bot starting...
+2025-12-09 11:24:27,033 - INFO - TreasureBot - Google Sheets client initialized.
+2025-12-09 11:24:28,830 - INFO - twitchio.websocket - Successfully logged onto Twitch WS: kuyachobot
+2025-12-09 11:24:28,858 - INFO - TreasureBot - Logged in as: kuyachobot
+2025-12-09 11:24:28,859 - INFO - TreasureBot - Monitoring channel: chopaeng
+2025-12-09 11:24:28,859 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:24:32,130 - INFO - TreasureBot - Found 5 sheets. Scanning...
+2025-12-09 11:24:32,669 - INFO - TreasureBot - Indexed: Matahom
+2025-12-09 11:24:34,200 - INFO - TreasureBot - Indexed: Paraluman
+2025-12-09 11:24:35,727 - INFO - TreasureBot - Indexed: KakangGata
+2025-12-09 11:24:37,252 - INFO - TreasureBot - Indexed: Tadhana
+2025-12-09 11:24:38,252 - INFO - TreasureBot - Scan complete. 4 sheets processed.
+2025-12-09 11:24:38,253 - INFO - TreasureBot - Cache updated: 2396 items loaded.
+2025-12-09 11:24:38,253 - INFO - TreasureBot - Background cache refresh task started.
+2025-12-09 11:25:17,956 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ Please leave on the airport only. Note that when you "leave quietly", our islands might crash and this might ruin the experience of other players who are on the islands. Tho crashes might be due to poor internet connection or someone's switch had battery low or was put on sleep mode. ﾟ+..｡ﾟ
+2025-12-09 11:25:58,612 - INFO - TreasureBot - [CHAT] byteress: ?find Hyacinth wand
+2025-12-09 11:25:58,848 - INFO - TreasureBot - [CHAT] chopaeng: Hey byteress! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:26:22,729 - INFO - TreasureBot - [CHAT] byteress: ?find Turnips
+2025-12-09 11:26:22,954 - INFO - TreasureBot - [CHAT] chopaeng: Hey byteress! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:26:49,760 - INFO - TreasureBot - [CHAT] chopaeng: Thank you for following 0rlovdev kuyachoCho
+2025-12-09 11:26:51,020 - INFO - TreasureBot - [CHAT] 0rlovdev: ?maps
+2025-12-09 11:27:17,938 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ Did you know that you can subscribe for free using Twitch Prime? Click the link to support Kuya kuyachoCho! https://twitch.amazon.com/prime VirtualHug kuyachoCho   ﾟ+..｡ﾟ
+2025-12-09 11:29:58,273 - INFO - TreasureBot - [CHAT] randomwff: !orderbot glow-in-the-dark-stickers
+2025-12-09 11:29:58,538 - INFO - TreasureBot - [CHAT] chopaeng: Type "!order <item name>" on the chat. Example: !order nook miles ticket. The full instruction can be seen on our Discord Server: https://discord.gg/chopaeng. Navigate to "Get Roles" channel under `Games you play` to get the "Animal Crossing" role. Then navigate to "Order Bot How" channel for the full tutorial. You can also get your villager using the Orderbot. Type "!order villager:<id>". You can find the ID of a villager here https://bit.ly/OrderVillagerCode.
+2025-12-09 11:31:15,403 - INFO - TreasureBot - [CHAT] randomwff: !order glow-in-the-dark stickers DIY
+2025-12-09 11:37:20,103 - INFO - TreasureBot - [CHAT] nunusrn: !find dotty
+2025-12-09 11:37:20,404 - INFO - TreasureBot - [CHAT] chopaeng: Hey nunusrn! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:37:20,405 - INFO - TreasureBot - [CHAT] kuyachobot: @nunusrn [ERROR] Couldn't find 'dotty' in the database.
+2025-12-09 11:37:32,687 - INFO - TreasureBot - [CHAT] nunusrn: !find villager
+2025-12-09 11:37:32,966 - INFO - TreasureBot - [CHAT] kuyachobot: @nunusrn [ERROR] Couldn't find 'villager' in the database.
+2025-12-09 11:37:33,214 - INFO - TreasureBot - [CHAT] chopaeng: Hey kuyachobot! Type !orderbot on our chat to use our Orderbot for free. You can get any item, DIY, or villager using this. Completely for free!
+2025-12-09 11:40:17,919 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ Please leave on the airport only. Note that when you "leave quietly", our islands might crash and this might ruin the experience of other players who are on the islands. Tho crashes might be due to poor internet connection or someone's switch had battery low or was put on sleep mode. ﾟ+..｡ﾟ
+2025-12-09 11:41:47,938 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ PERKS FOR SUBSCRIBING kuyachoCho : Unlimited access to Treasure Islands 24/7. || Request any item/DIY/Villager on the island.  JOIN OUR COMMUNITY: https://www.patreon.com/chopaeng/membership or https://subs.twitch.tv/chopaeng VirtualHug kuyachoCho ﾟ+..｡ﾟ
+2025-12-09 11:46:15,288 - INFO - TreasureBot - [CHAT] randomwff: !sinagtala
+2025-12-09 11:46:15,590 - INFO - TreasureBot - [CHAT] chopaeng: Sinagtala - Materials and DIY Island || Villagers: Bluebear, Tabby, Megan, Penelope, Pekoe, Felicity, Midge, Axel, Wendy, Tangy <3 Map: http://bit.ly/sinagtalamap
+2025-12-09 11:55:17,984 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ Please leave on the airport only. Note that when you "leave quietly", our islands might crash and this might ruin the experience of other players who are on the islands. Tho crashes might be due to poor internet connection or someone's switch had battery low or was put on sleep mode. ﾟ+..｡ﾟ
+2025-12-09 11:56:49,050 - INFO - TreasureBot - Bot starting...
+2025-12-09 11:56:49,053 - INFO - TreasureBot - Google Sheets client initialized.
+2025-12-09 11:56:50,897 - INFO - twitchio.websocket - Successfully logged onto Twitch WS: kuyachobot
+2025-12-09 11:56:50,923 - INFO - TreasureBot - Logged in as: kuyachobot
+2025-12-09 11:56:50,923 - INFO - TreasureBot - Monitoring channel: chopaeng
+2025-12-09 11:56:50,923 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:56:53,937 - INFO - TreasureBot - Found 5 sheets. Scanning...
+2025-12-09 11:56:54,548 - INFO - TreasureBot - Indexed: Matahom
+2025-12-09 11:56:55,950 - INFO - TreasureBot - Indexed: Paraluman
+2025-12-09 11:56:57,345 - INFO - TreasureBot - Indexed: KakangGata
+2025-12-09 11:56:58,759 - INFO - TreasureBot - Indexed: Tadhana
+2025-12-09 11:56:59,760 - INFO - TreasureBot - Scan complete. 4 sheets processed.
+2025-12-09 11:56:59,760 - INFO - TreasureBot - Cache updated: 2694 items loaded.
+2025-12-09 11:56:59,760 - INFO - TreasureBot - Background cache refresh task started.
+2025-12-09 11:57:17,933 - INFO - TreasureBot - [CHAT] chopaeng: ACTION .｡ﾟ+..｡ Did you know that you can subscribe for free using Twitch Prime? Click the link to support Kuya kuyachoCho! https://twitch.amazon.com/prime VirtualHug kuyachoCho   ﾟ+..｡ﾟ
+2025-12-09 11:57:21,456 - INFO - TreasureBot - [CHAT] byteress: !reload
+2025-12-09 11:57:21,457 - INFO - TreasureBot - Updating cache from Google Sheets...
+2025-12-09 11:57:21,732 - INFO - TreasureBot - [CHAT] kuyachobot: @byteress Command reserved for Moderators.
+2025-12-09 11:57:22,815 - INFO - TreasureBot - Found 5 sheets. Scanning...
+2025-12-09 11:57:23,233 - INFO - TreasureBot - Indexed: Matahom
+2025-12-09 11:57:24,692 - INFO - TreasureBot - Indexed: Paraluman
+2025-12-09 11:57:26,094 - INFO - TreasureBot - Indexed: KakangGata
+2025-12-09 11:57:27,655 - INFO - TreasureBot - Indexed: Tadhana
+2025-12-09 11:57:28,656 - INFO - TreasureBot - Scan complete. 4 sheets processed.
+2025-12-09 11:57:28,657 - INFO - TreasureBot - Cache updated: 2694 items loaded.
