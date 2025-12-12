@@ -286,7 +286,7 @@ class NookipediaClient:
             "thumbsize": thumbsize
         })
 
-client = NookipediaClient("c8c58fd9-e343-49b2-b9fa-7b8f746c5fa3")
+client = NookipediaClient()
 recipes = client.get_recipes()
 
 unique_materials = set()

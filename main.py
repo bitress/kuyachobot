@@ -4,7 +4,7 @@ import time
 import logging
 from datetime import datetime
 import traceback
-
+import re
 import gspread
 from twitchio.ext import commands
 from thefuzz import process, fuzz
@@ -35,6 +35,7 @@ CHANNEL = os.getenv('TWITCH_CHANNEL')
 WORKBOOK_NAME = os.getenv('WORKBOOK_NAME')
 JSON_KEYFILE = 'service_account.json'
 CACHE_REFRESH_HOURS = 1
+VILLAGERS_DIR = os.getenv('VILLAGERS_DIR')
 
 
 class TreasureBot(commands.Bot):
@@ -86,6 +87,7 @@ class TreasureBot(commands.Bot):
             logger.error(f"Sheet Update Failed: {e}", exc_info=True)
 
     def _sync_update(self):
+        """Fetches ITEMS from Google Sheets only. Villagers are fetched live."""
         if not self.gc:
             try:
                 self.gc = gspread.service_account(filename=JSON_KEYFILE)
@@ -103,7 +105,6 @@ class TreasureBot(commands.Bot):
 
             for sheet in worksheets:
                 if sheet.title == "ACNH_Items":
-                    logger.debug("Skipping 'ACNH_Items'.")
                     continue
 
                 try:
@@ -117,7 +118,6 @@ class TreasureBot(commands.Bot):
                             item_name = cell.strip()
                             if item_name:
                                 key = item_name.lower()
-                                # Store locations as comma-separated string initially
                                 if key in temp_cache:
                                     current_locations = temp_cache[key].split(", ")
                                     if location_name not in current_locations:
@@ -127,7 +127,7 @@ class TreasureBot(commands.Bot):
 
                     sheets_scanned += 1
                     logger.info(f"Indexed: {location_name}")
-                    time.sleep(1.0)  # Rate limit
+                    time.sleep(1.0)
 
                 except Exception as e:
                     logger.error(f"Error reading '{sheet.title}': {e}")
@@ -157,7 +157,45 @@ class TreasureBot(commands.Bot):
         self.cooldowns[user_id] = now
         return False
 
-    @commands.command(aliases=['locate', 'where'])
+    def get_villagers(self):
+        data = {}
+        villagers_root = VILLAGERS_DIR
+
+        if not villagers_root or not os.path.exists(villagers_root):
+            return data
+
+        try:
+            for root, dirs, files in os.walk(villagers_root):
+                if "Villagers.txt" in files:
+                    location_name = os.path.basename(root)
+                    file_path = os.path.join(root, "Villagers.txt")
+
+                    with open(file_path, 'rb') as file:
+                        raw_content = file.read().decode('utf-8', errors='ignore')
+
+                        names_list = re.split(r'[,\n\r]+', raw_content)
+
+                        for name in names_list:
+                            clean_name = name.strip()
+
+                            if clean_name:
+                                key = clean_name.lower()
+
+                                if len(key) > 30: continue
+
+                                if key in data:
+                                    current_locs = data[key].split(", ")
+                                    if location_name not in current_locs:
+                                        data[key] += f", {location_name}"
+                                else:
+                                    data[key] = location_name
+            return data
+
+        except Exception as e:
+            logger.error(f"Villager scan failed: {e}")
+            return data
+
+    @commands.command(aliases=['locate', 'where', 'villager'])
     async def find(self, ctx: commands.Context, *, item: str = ""):
         if not item:
             await ctx.send(f"Usage: !find <item name>")
@@ -166,45 +204,54 @@ class TreasureBot(commands.Bot):
         if self.check_cooldown(str(ctx.author.id)):
             return
 
-        if not self.cache:
-            await ctx.send("Database loading...")
-            return
-
         search_term = item.lower().strip()
 
-        # 1. Exact Match
-        if search_term in self.cache:
-            # Format: Found LUCKY CAT on: MATAHOM | PARALUMAN
-            raw_locations = self.cache[search_term]
-            formatted_locations = raw_locations.upper().replace(", ", " | ")
+        item_hits = self.cache.get(search_term, "")
 
-            await ctx.send(f"Found {search_term.upper()} on: {formatted_locations}")
-            logger.info(f"Found {search_term.upper()} on: {formatted_locations}")
+        villager_map = self.get_villagers()
+        villager_hits = villager_map.get(search_term, "")
+
+        found_locations = []
+        if item_hits:
+            found_locations.append(item_hits)
+        if villager_hits:
+            found_locations.append(villager_hits)
+
+        if found_locations:
+            all_locations = ", ".join(found_locations)
+            unique_locations = list(set(all_locations.split(", ")))
+            formatted = " | ".join(unique_locations).upper()
+
+            map_word = "this map" if len(unique_locations) == 1 else "these maps"
+
+            await ctx.send(f"Hey @{ctx.author.name}, I found {search_term.upper()} on {map_word}: {formatted}")
+            logger.info(f"Hey @{ctx.author.name}, I found {search_term.upper()} on {map_word}: {formatted}")
             return
 
-        # 2. Fuzzy Match & Suggestions
+        all_keys = list(self.cache.keys()) + list(villager_map.keys())
+
         matches = process.extract(
             search_term,
-            self.cache.keys(),
+            all_keys,
             limit=5,
             scorer=fuzz.token_set_ratio
         )
 
-        # Filter matches (Threshold > 75)
-        valid_suggestions = [m[0] for m in matches if m[1] > 75]
+        valid_suggestions = list(set([m[0] for m in matches if m[1] > 75]))
 
         if valid_suggestions:
             suggestions_str = ", ".join(valid_suggestions)
             await ctx.send(
-                f"Couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
+                f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
             )
             logger.info(
-                f"Couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
+                f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" - Did you mean: {suggestions_str}?"
             )
         else:
             await ctx.send(
-                f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
-            logger.info(f"I couldn't find \"{search_term}\" or anything similar. Check your spelling!")
+                f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" or anything similar. Please check your spelling.")
+            logger.info(
+                f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" or anything similar. Please check your spelling.")
 
     @commands.command()
     async def help(self, ctx: commands.Context):
