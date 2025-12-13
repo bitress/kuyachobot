@@ -205,6 +205,12 @@ class TreasureBot(commands.Bot):
             return
 
         search_term = item.lower().strip()
+        if search_term.startswith("villager "):
+            search_term = search_term.replace("villager ", "", 1).strip()
+
+        if not search_term:
+            await ctx.send(f"Please specify a name: !find villager <name>")
+            return
 
         item_hits = self.cache.get(search_term, "")
 
@@ -252,6 +258,7 @@ class TreasureBot(commands.Bot):
                 f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" or anything similar. Please check your spelling.")
             logger.info(
                 f"Hey @{ctx.author.name}, I couldn't find \"{search_term}\" or anything similar. Please check your spelling.")
+
 
     @commands.command()
     async def help(self, ctx: commands.Context):
